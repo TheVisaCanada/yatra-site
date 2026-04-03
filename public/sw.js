@@ -3,15 +3,12 @@ const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/hero_gateway_arch.jpg',
-  '/sacred_circuit_landscape.jpg',
   '/ancestral_village_landscape.jpg',
   '/voyage_road_vehicle.jpg',
-  '/trust_security_image.jpg',
   '/experience_card_1_nankana.jpg',
   '/experience_card_2_village.jpg',
   '/experience_card_3_charter.jpg',
-  '/kartarpur_sunrise.jpg',
+  '/Darbar Sahib Kartarpur.jpg',
 ];
 
 // Install event - cache static assets
@@ -48,14 +45,19 @@ self.addEventListener('fetch', (event) => {
   // Skip cross-origin requests
   if (!event.request.url.startsWith(self.location.origin)) return;
 
+  // Skip MP4 files — videos use range requests (HTTP 206) which cannot be
+  // safely cached by service workers. Pass them straight to the network.
+  if (event.request.url.endsWith('.mp4')) return;
+
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       // Return cached response if found
       if (cachedResponse) {
-        // Fetch from network in background to update cache
+        // Fetch from network in background to update cache (stale-while-revalidate)
         fetch(event.request)
           .then((networkResponse) => {
-            if (networkResponse.ok) {
+            // Only cache full 200 responses — never cache 206 partial content
+            if (networkResponse.status === 200) {
               caches.open(CACHE_NAME).then((cache) => {
                 cache.put(event.request, networkResponse.clone());
               });
@@ -70,16 +72,16 @@ self.addEventListener('fetch', (event) => {
       // Not in cache, fetch from network
       return fetch(event.request)
         .then((networkResponse) => {
-          if (!networkResponse.ok) {
-            throw new Error('Network response was not ok');
+          // Only cache full 200 responses — never cache 206 partial content
+          if (networkResponse.status !== 200) {
+            return networkResponse;
           }
-          
-          // Cache the new response
+
           const responseToCache = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => {
             cache.put(event.request, responseToCache);
           });
-          
+
           return networkResponse;
         })
         .catch((error) => {
