@@ -78,10 +78,10 @@ const ContactSection = ({ className = '' }: ContactSectionProps) => {
   };
 
   const contactInfo = [
-    { icon: Mail, label: 'Email', value: 'journeys@baarik.travel' },
-    { icon: Phone, label: 'Phone', value: '+1 (800) 555-0138' },
+    { icon: Mail, label: 'Email', value: 'yatra@baariktravel.ca' },
+    { icon: Phone, label: 'Phone', value: '+1 (647) 249-7545' },
     { icon: Clock, label: 'Hours', value: 'Mon–Sat, 9am–7pm ET' },
-    { icon: MapPin, label: 'Address', value: '1965 Britannia Road West, Mississauga, ON' },
+    { icon: MapPin, label: 'Address', value: '1965 Britannia Road West, Unit 208, Mississauga, ON L5M 4Y4, Canada' },
   ];
 
   return (

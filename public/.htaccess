@@ -1,0 +1,7 @@
+# Allow Facebook crawler
+RewriteCond %{HTTP_USER_AGENT} !facebookexternalhit [NC]
+RewriteCond %{HTTP_USER_AGENT} !Facebot [NC]
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QL]

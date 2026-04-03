@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(./node_modules/.bin/tsc -b)",
+      "Bash(./node_modules/.bin/vite build:*)",
+      "Bash(npm install:*)",
+      "Bash(node -e \":*)",
+      "Bash(ls:*)",
+      "Bash(ffmpeg -i \"12237584_1920_1080_50fps.mp4\" -c:v libx264 -crf 28 -preset slow -an -movflags +faststart \"12237584_compressed.mp4\")",
+      "Bash(ffmpeg -i \"12237608_1920_1080_50fps.mp4\" -c:v libx264 -crf 28 -preset slow -an -movflags +faststart \"12237608_compressed.mp4\")",
+      "Bash(ffmpeg -i \"12237616_1920_1080_50fps.mp4\" -c:v libx264 -crf 28 -preset slow -an -movflags +faststart \"12237616_compressed.mp4\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baarik Yatra — Sikh Pilgrimage to Pakistan</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0B0F1C;
+      --gold:   #C9A84C;
+      --cream:  #F5F0E8;
+      --charcoal: #1A1F2E;
+      --text-secondary: #9AA3B2;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--cream);
+      line-height: 1.6;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      width: 794px;
+      margin: 0 auto;
+      background: var(--navy);
+    }
+
+    /* ── SHARED ── */
+    .eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    .gold-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 16px 0;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      position: relative;
+      height: 100vh;
+      min-height: 560px;
+      overflow: hidden;
+      page-break-after: always;
+    }
+
+    .cover-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(11,15,28,0.3) 0%, rgba(11,15,28,0.6) 60%, rgba(11,15,28,0.9) 100%);
+    }
+
+    .cover-content {
+      position: absolute;
+      bottom: 64px;
+      left: 56px;
+      right: 56px;
+    }
+
+    .cover-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 400;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .cover-subtitle {
+      font-size: 13px;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+
+    .cover-tag {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+    }
+
+    .cover-logo {
+      position: absolute;
+      top: 40px;
+      left: 56px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    /* ── SECTION BLOCK ── */
+    .section {
+      padding: 72px 56px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .section-split {
+      display: flex;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .section-split .text { flex: 1; }
+
+    .section-split .image-wrap {
+      flex: 0 0 280px;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.3);
+    }
+
+    .section-split .image-wrap img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+
+    h2.section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    p.section-body {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    /* ── WIDE IMAGE ── */
+    .wide-image-block {
+      width: 100%;
+      height: 320px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .wide-image-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .wide-image-block .caption {
+      position: absolute;
+      bottom: 20px;
+      left: 32px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: #fff;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+    }
+
+    /* ── SITE CARDS ── */
+    .cards-section {
+      padding: 64px 56px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .cards-section .cards-header {
+      margin-bottom: 40px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .site-card {
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--charcoal);
+    }
+
+    .site-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .site-card-body {
+      padding: 20px;
+    }
+
+    .site-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .site-card-text {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .site-card-location {
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    /* ── PACKAGES ── */
+    .packages-section {
+      padding: 64px 56px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .package-row {
+      display: flex;
+      gap: 20px;
+      margin-top: 36px;
+    }
+
+    .package-card {
+      flex: 1;
+      padding: 28px;
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 4px;
+      background: var(--charcoal);
+    }
+
+    .package-card.featured {
+      border-color: var(--gold);
+    }
+
+    .package-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .package-price {
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .package-features {
+      list-style: none;
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 2;
+    }
+
+    .package-features li::before {
+      content: '— ';
+      color: var(--gold);
+    }
+
+    /* ── CONTACT / BACK COVER ── */
+    .back-cover {
+      position: relative;
+      height: 480px;
+      overflow: hidden;
+    }
+
+    .back-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .back-cover-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,15,28,0.95) 0%, rgba(11,15,28,0.5) 60%, rgba(11,15,28,0.2) 100%);
+    }
+
+    .back-cover-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 48px 56px;
+      text-align: center;
+    }
+
+    .back-cover-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .back-cover-content p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 6px;
+    }
+
+    .contact-gold {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .cover { height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- ── COVER ── -->
+    <div class="cover">
+      <img
+        class="cover-image"
+        src="http://localhost:3333/Gurdwara-kartar-Sahib.jpg"
+        alt="Gurdwara Kartarpur Sahib — Baarik Yatra"
+      />
+      <div class="cover-overlay"></div>
+      <div class="cover-logo">Baarik Yatra</div>
+      <div class="cover-content">
+        <p class="eyebrow" style="margin-bottom:12px;">Sikh Pilgrimage to Pakistan · 2026–2027</p>
+        <h1 class="cover-title">Walk where<br/>history was<br/>written.</h1>
+        <p class="cover-subtitle">Curated, secure pilgrimage experiences for Canadian Sikh families</p>
+        <span class="cover-tag">Private Groups &nbsp;·&nbsp; Sacred Circuit &nbsp;·&nbsp; Ancestral Journey</span>
+      </div>
+    </div>
+
+    <!-- ── ABOUT ── -->
+    <div class="section">
+      <div class="section-split">
+        <div class="text">
+          <p class="eyebrow">Who We Are</p>
+          <div class="gold-line"></div>
+          <h2 class="section-title">Built for families who take this seriously.</h2>
+          <p class="section-body">
+            Baarik Travel & Tours Inc. is a Canadian registered travel operator specializing exclusively in Sikh pilgrimage to Pakistan. We handle everything — visas, permits, transport, security, and the PSGPC invitation letter — so your family can focus entirely on the journey.
+          </p>
+          <p class="section-body">
+            We work with a maximum of 12 pilgrims per shared group and offer fully private charter options for sangat groups, families, and corporate wellness trips.
+          </p>
+          <p class="section-body" style="color: var(--gold); font-size: 12px; letter-spacing: 0.05em;">
+            RCIC Regulated &nbsp;·&nbsp; TICO Compliant &nbsp;·&nbsp; PSGPC Partnered
+          </p>
+        </div>
+        <div class="image-wrap">
+          <img
+            src="http://localhost:3333/Darbar Sahib Kartarpur.jpg"
+            alt="Gurdwara Darbar Sahib Kartarpur"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SACRED SITES WIDE IMAGE ── -->
+    <div class="wide-image-block">
+      <img
+        src="http://localhost:3333/Gurdwara-kartar-Sahib.jpg"
+        alt="Gurdwara Kartarpur Sahib — the sacred circuit"
+      />
+      <div class="caption">The Sacred Circuit</div>
+    </div>
+
+    <!-- ── SACRED SITES CARDS ── -->
+    <div class="cards-section">
+      <div class="cards-header">
+        <p class="eyebrow">Sacred Sites</p>
+        <div class="gold-line"></div>
+        <h2 class="section-title">Every major Sikh site in Pakistan. One journey.</h2>
+        <p class="section-body" style="max-width: 480px;">
+          More than 80% of all Sikh heritage sites are located in Pakistan. Our circuit covers the most significant — the geography of Guru Nanak's life.
+        </p>
+      </div>
+      <div class="cards-grid">
+
+        <div class="site-card">
+          <img
+            src="http://localhost:3333/nankana-sahib.jpg"
+            alt="Nankana Sahib — birthplace of Guru Nanak Dev Ji"
+          />
+          <div class="site-card-body">
+            <p class="site-card-location">Nankana Sahib, Punjab</p>
+            <h3 class="site-card-title">Nankana Sahib</h3>
+            <p class="site-card-text">
+              The birthplace of Guru Nanak Dev Ji. Gurdwara Janam Asthan marks the precise location — a complex of seven interconnected gurdwaras covering the milestones of the Guru's early life.
+            </p>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <img
+            src="http://localhost:3333/Gurdwara-panja-sahib.jpg"
+            alt="Gurdwara Panja Sahib, Hasan Abdal"
+          />
+          <div class="site-card-body">
+            <p class="site-card-location">Hasan Abdal, Punjab</p>
+            <h3 class="site-card-title">Panja Sahib</h3>
+            <p class="site-card-text">
+              Built around the stone bearing Guru Nanak's handprint, Gurdwara Panja Sahib in Hasan Abdal is among the most visually striking and spiritually charged sites on the entire circuit.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── PACKAGES ── -->
+    <div class="packages-section">
+      <p class="eyebrow">Our Packages</p>
+      <div class="gold-line"></div>
+      <h2 class="section-title">Three ways to travel with Baarik.</h2>
+
+      <div class="package-row">
+        <div class="package-card featured">
+          <p class="package-name">The Sacred Circuit</p>
+          <p class="package-price">From $3,200 CAD per person</p>
+          <ul class="package-features">
+            <li>5 days · 4 nights · Lahore base</li>
+            <li>Nankana Sahib, Kartarpur, Panja Sahib</li>
+            <li>Small group (max 12 pilgrims)</li>
+            <li>PSGPC visa letter included</li>
+            <li>4-star hotel twin share</li>
+            <li>All transport & gurdwara entry</li>
+          </ul>
+        </div>
+
+        <div class="package-card">
+          <p class="package-name">Ancestral Journey</p>
+          <p class="package-price">From $2,800 CAD</p>
+          <ul class="package-features">
+            <li>Flexible 3–10 days</li>
+            <li>Pre-trip village research</li>
+            <li>Dedicated fixer & translator</li>
+            <li>Photography documentation</li>
+            <li>Digital heritage report</li>
+          </ul>
+        </div>
+
+        <div class="package-card">
+          <p class="package-name">Private Charter</p>
+          <p class="package-price">Custom pricing</p>
+          <ul class="package-features">
+            <li>Your group · Your dates</li>
+            <li>4–14 days, any size (min 6)</li>
+            <li>Bespoke itinerary</li>
+            <li>Armored transport available</li>
+            <li>Dedicated trip manager</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BACK COVER ── -->
+    <div class="back-cover">
+      <img
+        src="http://localhost:3333/nankana-sahib-outerview.jpg"
+        alt="Nankana Sahib — exterior view"
+      />
+      <div class="back-cover-overlay"></div>
+      <div class="back-cover-content">
+        <p class="eyebrow" style="margin-bottom: 16px;">Begin Your Yatra</p>
+        <h2>Ready to walk where history was written?</h2>
+        <p style="margin-top: 24px;">We respond within 24 hours.</p>
+        <p><span class="contact-gold">yatra@baariktravel.ca</span></p>
+        <p><span class="contact-gold">+1 (647) 249-7545</span></p>
+        <p style="margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.4);">
+          Baarik Travel & Tours Inc. · 1965 Britannia Road West, Unit 208, Mississauga ON L5M 4Y4
+        </p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

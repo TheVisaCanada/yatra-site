@@ -26,9 +26,7 @@ const SacredCircuitSection = ({ className = '' }: SacredCircuitSectionProps) => 
           trigger: section,
           start: 'top top',
           end: '+=130%',
-          pin: true,
           scrub: 0.6,
-          anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
@@ -112,8 +110,8 @@ const SacredCircuitSection = ({ className = '' }: SacredCircuitSectionProps) => 
       {/* Background Image */}
       <div ref={bgRef} className="absolute inset-0 z-0">
         <img
-          src="/sacred_circuit_landscape.jpg"
-          alt="Sacred Circuit"
+          src="/Gurdwara-panja-sahib.jpg"
+          alt="Gurdwara Panja Sahib, Hasan Abdal, Pakistan — sacred Sikh pilgrimage site"
           className="w-full h-full object-cover image-cinematic"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/50 to-transparent" />

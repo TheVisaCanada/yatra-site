@@ -26,9 +26,7 @@ const VoyageSection = ({ className = '' }: VoyageSectionProps) => {
           trigger: section,
           start: 'top top',
           end: '+=130%',
-          pin: true,
           scrub: 0.6,
-          anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
@@ -141,7 +139,7 @@ const VoyageSection = ({ className = '' }: VoyageSectionProps) => {
           for seniors and families.
         </p>
         <a
-          href="#"
+          href="#contact"
           className="btn-outline inline-flex items-center gap-2 ml-auto"
         >
           See transport & hotels

@@ -63,7 +63,7 @@ const SignatureExperiencesSection = ({ className = '' }: SignatureExperiencesSec
 
   const experiences = [
     {
-      image: '/experience_card_1_nankana.jpg',
+      image: '/nankana-sahib.jpg',
       title: 'The Sacred Circuit',
       bullets: ['5 days • 3 Gurdwaras', 'Small group (max 12)'],
       link: 'See dates & pricing',
@@ -161,7 +161,8 @@ const SignatureExperiencesSection = ({ className = '' }: SignatureExperiencesSec
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <a
-            href="#"
+            href="/baarik-yatra-brochure.pdf"
+            download="Baarik-Yatra-Brochure.pdf"
             className="btn-outline inline-flex items-center gap-2"
           >
             <Download className="w-5 h-5" />

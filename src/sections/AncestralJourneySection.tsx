@@ -26,9 +26,7 @@ const AncestralJourneySection = ({ className = '' }: AncestralJourneySectionProp
           trigger: section,
           start: 'top top',
           end: '+=130%',
-          pin: true,
           scrub: 0.6,
-          anticipatePin: 1,
           invalidateOnRefresh: true,
         },
       });
@@ -112,8 +110,8 @@ const AncestralJourneySection = ({ className = '' }: AncestralJourneySectionProp
       {/* Background Image */}
       <div ref={bgRef} className="absolute inset-0 z-0">
         <img
-          src="/ancestral_village_landscape.jpg"
-          alt="Ancestral Village"
+          src="/rural-village.jpg"
+          alt="Rural village in Pakistani Punjab"
           className="w-full h-full object-cover image-cinematic"
         />
         <div className="absolute inset-0 bg-gradient-to-l from-navy/80 via-navy/50 to-transparent" />

@@ -8,10 +8,8 @@ const Footer = () => {
           {/* Top Row */}
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 mb-10">
             {/* Logo */}
-            <div className="flex items-center gap-2">
-              <span className="font-serif text-2xl text-text-primary">Baarik</span>
-              <span className="text-gold text-lg">◆</span>
-              <span className="font-serif text-2xl text-text-secondary">Yatra</span>
+            <div className="flex items-center">
+              <img src="/barrik-logo-orange.png" alt="Baarik Yatra" className="h-10 w-auto" />
             </div>
 
             {/* Trust Badges */}
@@ -46,7 +44,7 @@ const Footer = () => {
             <div className="text-text-secondary/60 text-xs max-w-md text-right">
               <p>
                 Baarik Travel & Tours Inc. is a registered Ontario travel agency.
-                TICO #5002XXXX. RCIC Oversight by Amer Rehman.
+                TICO Registration Pending. RCIC Oversight by Amer Rehman.
               </p>
             </div>
           </div>

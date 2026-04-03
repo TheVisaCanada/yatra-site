@@ -1,4 +1,4 @@
-import { useEffect, useRef, useLayoutEffect } from 'react';
+import { useEffect, useRef, useLayoutEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronRight, Phone } from 'lucide-react';
@@ -9,9 +9,34 @@ interface HeroSectionProps {
   className?: string;
 }
 
+const HERO_VIDEOS = [
+  '/12237616_1920_1080_50fps.mp4',
+  '/12237608_1920_1080_50fps.mp4',
+  '/12237584_1920_1080_50fps.mp4',
+];
+
 const HeroSection = ({ className = '' }: HeroSectionProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoIndex, setVideoIndex] = useState(0);
+
+  const handleVideoEnded = () => {
+    setVideoIndex(i => (i + 1) % HERO_VIDEOS.length);
+  };
+
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    vid.load();
+    vid.play().catch(() => {});
+  }, [videoIndex]);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.0;
+    }
+  }, [videoIndex]);
   const contentRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const sublineRef = useRef<HTMLParagraphElement>(null);
@@ -77,9 +102,7 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
           trigger: section,
           start: 'top top',
           end: '+=130%',
-          pin: true,
           scrub: 0.6,
-          anticipatePin: 1,
           invalidateOnRefresh: true,
           onLeaveBack: () => {
             // Reset all elements to visible when scrolling back to top
@@ -135,11 +158,16 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
         className="absolute inset-0 z-0"
         style={{ opacity: 0 }}
       >
-        <img
-          src="/hero_gateway_arch.jpg"
-          alt="Sacred Gateway"
-          className="w-full h-full object-cover image-cinematic"
-        />
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          playsInline
+          onEnded={handleVideoEnded}
+          className="w-full h-full object-cover"
+        >
+          <source src={HERO_VIDEOS[videoIndex]} type="video/mp4" />
+        </video>
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy/35 via-navy/50 to-navy/75" />
       </div>
@@ -176,7 +204,7 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
               Explore journeys
               <ChevronRight className="w-5 h-5" />
             </a>
-            <a href="tel:+18005550138" className="btn-outline flex items-center gap-2">
+            <a href="tel:+16472497545" className="btn-outline flex items-center gap-2">
               <Phone className="w-5 h-5" />
               Request a call
             </a>

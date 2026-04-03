@@ -110,8 +110,8 @@ const TrustSafetySection = ({ className = '' }: TrustSafetySectionProps) => {
           >
             <div className="relative aspect-[3/4] rounded-lg overflow-hidden gold-border">
               <img
-                src="/trust_security_image.jpg"
-                alt="Trust and Safety"
+                src="/security.jpg"
+                alt="Licensed security and document handling for Canadian Sikh pilgrims to Pakistan"
                 className="w-full h-full object-cover image-cinematic"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
