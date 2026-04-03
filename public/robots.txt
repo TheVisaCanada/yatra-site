@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://yatra.baariktravel.ca/sitemap.xml
+Disallow: /baarik-yatra-brochure-final2.html

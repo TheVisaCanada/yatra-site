@@ -10,7 +10,7 @@ interface SEOHeadProps {
 
 const SEOHead = ({ title, description, canonical, ogImage, schema }: SEOHeadProps) => {
   const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
-  const image = ogImage || '/kartarpur_sunrise.jpg';
+  const image = ogImage || '/Darbar Sahib Kartarpur.jpg';
 
   return (
     <Helmet>

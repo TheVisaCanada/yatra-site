@@ -94,7 +94,7 @@ const YatraDiaryArticlePage = () => {
         title={`${diary.title} | Yatra Diaries — Baarik Yatra`}
         description={diary.excerpt}
         canonical={`https://yatra.baariktravel.ca/yatra-diaries/${diary.slug}`}
-        ogImage={diary.heroImage}
+        ogImage={`https://yatra.baariktravel.ca${diary.heroImage}`}
         schema={blogPostingSchema}
       />
       <div className="bg-navy min-h-screen pt-24">

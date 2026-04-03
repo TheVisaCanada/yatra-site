@@ -11,7 +11,17 @@
       "Bash(ffmpeg -i \"12237608_1920_1080_50fps.mp4\" -c:v libx264 -crf 28 -preset slow -an -movflags +faststart \"12237608_compressed.mp4\")",
       "Bash(ffmpeg -i \"12237616_1920_1080_50fps.mp4\" -c:v libx264 -crf 28 -preset slow -an -movflags +faststart \"12237616_compressed.mp4\")",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(grep -E \"\\\\.\\(jpg|png|jpeg|gif|svg|webp\\)$\")",
+      "Bash(du -sh public/*)",
+      "WebFetch(domain:yatra.baariktravel.ca)",
+      "Bash(python \"C:/Users/thevi/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"luxury sikh pilgrimage travel heritage canada\" --design-system -p \"Baarik Yatra\" -f markdown)",
+      "Bash(python3 \"C:/Users/thevi/.claude/skills/ui-ux-pro-max/scripts/search.py\" \"luxury sikh pilgrimage travel heritage canada\" --design-system -p \"Baarik Yatra\" -f markdown)",
+      "Bash(where python:*)",
+      "Bash(where python3:*)",
+      "Read(//usr/**)",
+      "Read(//usr/local/**)"
     ]
   }
 }

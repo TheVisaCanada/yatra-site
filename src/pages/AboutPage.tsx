@@ -32,7 +32,7 @@ const AboutPage = () => {
         title="About Baarik Travel — RCIC-Overseen Sikh Pilgrimage Specialists"
         description="Baarik Travel & Tours Inc. is a registered Ontario travel agency specializing in Sikh pilgrimage to Pakistan. RCIC oversight by Amer Rehman. TICO Registration Pending."
         canonical="https://yatra.baariktravel.ca/about"
-        ogImage="/Darbar Sahib Kartarpur.jpg"
+        ogImage="https://yatra.baariktravel.ca/Darbar%20Sahib%20Kartarpur.jpg"
         schema={orgSchema}
       />
       <div className="bg-navy min-h-screen pt-24">

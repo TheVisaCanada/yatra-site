@@ -11,10 +11,12 @@ const ContactPage = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(false);
     try {
       await fetch('https://n8n.baariktravel.ca/webhook/yatra-contact', {
         method: 'POST',
@@ -26,12 +28,14 @@ const ContactPage = () => {
           message: formData.message,
         }),
       });
+      setSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', message: '' });
     } catch (err) {
       console.error('Contact form submission error:', err);
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
     }
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ name: '', email: '', phone: '', message: '' });
   };
 
   const contactInfo = [
@@ -160,12 +164,19 @@ const ContactPage = () => {
                         <label className="block text-sm text-text-secondary mb-2">Message</label>
                         <textarea
                           rows={5}
+                          required
                           value={formData.message}
                           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                           className="w-full px-4 py-3 bg-charcoal gold-border rounded-lg text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-gold transition-colors resize-none"
                           placeholder="Tell us about your journey — preferred dates, group size, any ancestral research needs..."
                         />
                       </div>
+
+                      {submitError && (
+                        <p className="text-sm text-red-400 bg-red-400/10 border border-red-400/30 rounded-lg px-4 py-3">
+                          Something went wrong sending your message. Please try again or email us directly at yatra@baariktravel.ca.
+                        </p>
+                      )}
 
                       <button
                         type="submit"

@@ -188,7 +188,7 @@ const ServicesPage = () => {
         title={`${active.title} — Baarik Yatra`}
         description={active.description}
         canonical={`https://yatra.baariktravel.ca/services/${active.id}`}
-        ogImage={active.image}
+        ogImage={`https://yatra.baariktravel.ca${active.image}`}
         schema={serviceSchema}
       />
       <div className="bg-navy min-h-screen pt-24">

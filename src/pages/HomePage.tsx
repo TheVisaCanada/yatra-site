@@ -70,7 +70,7 @@ const HomePage = () => {
         title="Baarik Yatra — Sikh Pilgrimage to Pakistan"
         description="Elite, secure, and curated Sikh pilgrimage experiences to Pakistan. Walk where history was written."
         canonical="https://yatra.baariktravel.ca/"
-        ogImage="/Darbar Sahib Kartarpur.jpg"
+        ogImage="https://yatra.baariktravel.ca/Darbar%20Sahib%20Kartarpur.jpg"
         schema={[travelAgencySchema, touristTripSchema]}
       />
       <div ref={mainRef} className="relative bg-navy min-h-screen">

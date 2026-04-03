@@ -10,7 +10,7 @@ const YatraDiariesPage = () => {
         title="Yatra Diaries — Sikh Pilgrimage Guides & Stories | Baarik Yatra"
         description="In-depth guides, visa information, and personal accounts from Sikh pilgrims who have completed the yatra to Pakistan. Written for Canadian families."
         canonical="https://yatra.baariktravel.ca/yatra-diaries"
-        ogImage="/Darbar Sahib Kartarpur.jpg"
+        ogImage="https://yatra.baariktravel.ca/Darbar%20Sahib%20Kartarpur.jpg"
       />
       <div className="bg-navy min-h-screen pt-24">
         {/* Header */}
